@@ -37,13 +37,13 @@ jobs:
       - name: Install and set Flutter version
         uses: subosito/flutter-action@v1.4.0
         with:
-          flutter-version: "2.0.1"
+          flutter-version: "2.10.2"
 
       - name: Restore packages
         run: flutter pub get
 
       - name: Build Flutter
-        run: flutter build ipa .\lib\tantaroyal.dart --flavor tantaroyal --release
+        run: flutter build  .\lib\tantaroyal.dart --flavor tantaroyal --release
 
       - name: Build resolve Swift dependencies
         run: xcodebuild -resolvePackageDependencies -workspace ios/Runner.xcworkspace -scheme ${{ env.SHEME }} -configuration ${{ env.BUILD_CONFIGURATION }}
